@@ -1,0 +1,8 @@
+validate_email = lambda email: ("@" in email and email.index("@") > 0 and "." in email[email.index("@"):] and email.count(".") > 0)
+validate_bangladesh_mobile = lambda mobile: (mobile.startswith("+880") and len(mobile) == 14 and mobile[4] in "3-9" and mobile[5:].isdigit())
+validate_usa_telephone = lambda telephone: (telephone.startswith("(") and telephone[4] == ")" and telephone[5] == " " and telephone[9] == "-" and telephone[1:4].isdigit() and telephone[6:9].isdigit() and telephone[10:].isdigit())
+validate_password = lambda password: (len(password) == 16 and any(c.isupper() for c in password) and any(c.islower() for c in password) and any(c.isdigit() for c in password) and any(c in "@$!%*?&" for c in password))
+print(validate_email("hp@mail.com"))  
+print(validate_bangladesh_mobile("+8801755555555"))  
+print(validate_usa_telephone("(123) 456-7890"))  
+print(validate_password("A1b@cdefghijk5lmn"))   
